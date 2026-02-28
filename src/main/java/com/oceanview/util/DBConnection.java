@@ -10,7 +10,6 @@ public class DBConnection {
     private static final String JDBC_PASSWORD = "1234";
 
     public static Connection getConnection() throws SQLException, ClassNotFoundException {
-        // This is the missing link! It checks if a test URL was provided by the JUnit test.
         String url = System.getProperty("test.db.url", DEFAULT_URL);
 
         if (url.contains("mysql")) {
