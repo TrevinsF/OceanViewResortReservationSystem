@@ -120,3 +120,166 @@ body.login-page {
     margin-bottom: 1rem;
     font-weight: 500;
 }
+
+/* Header */
+.top-bar {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3), 0 2px 4px -1px rgba(0, 0, 0, 0.1);
+}
+
+.header {
+    background-color: #1f1f1f;
+    color: white;
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header h1 {
+    font-size: 1.75rem;
+    font-weight: bold;
+    background-image: linear-gradient(to right, #ff7e5f, #feb47b);
+    -webkit-background-clip: text;
+    color: transparent;
+}
+
+/* Logout Button */
+.logout-button {
+    background-color: #ef4444;
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    font-weight: 600;
+    transition: background-color 0.2s ease;
+    border: none;
+    cursor: pointer;
+}
+.logout-button:hover {
+    background-color: #dc2626;
+}
+
+/* Nav */
+.main-nav {
+    background-color: #2d2d2d;
+    display: flex;
+    justify-content: center;
+    padding: 0.5rem 2rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.nav-link {
+    color: white;
+    text-decoration: none;
+    padding: 0.75rem 1.5rem;
+    font-weight: 500;
+    transition: color 0.2s ease;
+    display: flex;
+    align-items: center;
+}
+
+.nav-link:hover {
+    color: #feb47b;
+}
+
+.nav-link i {
+    margin-right: 0.5rem;
+}
+
+/* Main Content Area */
+.main-content {
+    flex-grow: 1;
+    padding: 2rem;
+    background-color: #2d2d2d;
+    border-radius: 1rem;
+    margin: 1.5rem;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Dashboard Styles */
+.title-text {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid #444444;
+}
+.title-text h2 {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #f5f5f5;
+}
+
+.sub-text {
+    color: #a0a0a0;
+    margin-bottom: 1.5rem;
+}
+
+.welcome-message {
+    font-size: 1.1rem;
+    color: #a0a0a0;
+}
+
+/* Tiles Grid for Dashboard */
+.tiles-grid {
+    display: grid;
+    justify-content: center;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+}
+
+.tile-card {
+    background-color: #1f1f1f;
+    border: 1px solid #444444;
+    border-radius: 0.75rem;
+    padding: 1.5rem;
+    text-align: center;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    text-decoration: none;
+    color: inherit;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.tile-card:hover {
+    transform: scale(1.025);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+}
+
+.tile-icon {
+    font-size: 8rem;
+    margin-bottom: 1rem;
+}
+
+.tile-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: #f5f5f5;
+    margin-bottom: 0.5rem;
+}
+
+.tile-description {
+    font-size: 0.9rem;
+    color: #a0a0a0;
+}
+
+/* Add Button */
+.add-button {
+    background-color: #feb47b;
+    color: #2d2d2d;
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.5rem;
+    font-weight: 600;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    transition: background-color 0.2s ease;
+}
+.add-button:hover {
+    background-color: #e6a26e;
+}
