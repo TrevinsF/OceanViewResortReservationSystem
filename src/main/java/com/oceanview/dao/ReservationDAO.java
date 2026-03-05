@@ -4,6 +4,8 @@ import com.oceanview.model.Reservation;
 import com.oceanview.util.DBConnection;
 
 import java.sql.*;
+import java.util.ArrayList;
+import java.util.List;
 
 public class ReservationDAO {
 
@@ -47,5 +49,68 @@ public class ReservationDAO {
         } finally {
             DBConnection.closeResources(conn, pstmt, rs);
         }
+    }
+
+    public Reservation getReservationByNumber(int reservationNumber) {
+        String SQL = "SELECT * FROM reservations WHERE reservation_number = ?";
+        Connection conn = null;
+        PreparedStatement pstmt = null;
+        ResultSet rs = null;
+        Reservation reservation = null;
+
+        try {
+            conn = DBConnection.getConnection();
+            pstmt = conn.prepareStatement(SQL);
+            pstmt.setInt(1, reservationNumber);
+            rs = pstmt.executeQuery();
+
+            if (rs.next()) {
+                reservation = new Reservation();
+                reservation.setId(rs.getInt("id"));
+                reservation.setReservationNumber(rs.getInt("reservation_number"));
+                reservation.setGuestName(rs.getString("guest_name"));
+                reservation.setAddress(rs.getString("address"));
+                reservation.setContactNumber(rs.getString("contact_number"));
+                reservation.setRoomType(rs.getString("room_type"));
+                reservation.setCheckInDate(rs.getDate("check_in_date"));
+                reservation.setCheckOutDate(rs.getDate("check_out_date"));
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            DBConnection.closeResources(conn, pstmt, rs);
+        }
+        return reservation;
+    }
+
+    public List<Reservation> getAllReservations() {
+        String SQL = "SELECT * FROM reservations";
+        Connection conn = null;
+        Statement stmt = null;
+        ResultSet rs = null;
+        List<Reservation> reservations = new ArrayList<>();
+
+        try {
+            conn = DBConnection.getConnection();
+            stmt = conn.createStatement();
+            rs = stmt.executeQuery(SQL);
+            while (rs.next()) {
+                Reservation reservation = new Reservation();
+                reservation.setId(rs.getInt("id"));
+                reservation.setReservationNumber(rs.getInt("reservation_number"));
+                reservation.setGuestName(rs.getString("guest_name"));
+                reservation.setAddress(rs.getString("address"));
+                reservation.setContactNumber(rs.getString("contact_number"));
+                reservation.setRoomType(rs.getString("room_type"));
+                reservation.setCheckInDate(rs.getDate("check_in_date"));
+                reservation.setCheckOutDate(rs.getDate("check_out_date"));
+                reservations.add(reservation);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            DBConnection.closeResources(conn, stmt, rs);
+        }
+        return reservations;
     }
 }
